@@ -8,23 +8,13 @@ import circus.animal.Parrot;
 public class Trainer {
     public static void main(String[] args) {
         Duck d = new Duck();
-        getToSpeak(d);
-
+        System.out.println(d.speak());
         Bird b = (Bird)d;  // upcasting
-        getToSpeak(b);
-
-        Animal a = (Animal)b; // upcasting (redundant - implicitly added by compiler)
-        getToSpeak(a);
-
-        Duck d2 = (Duck) a; // downcasting (needs to be stated explicitly, add instanceof as a guard)
+        Animal a = (Animal)b; // upcasting
+        System.out.println(a.speak());
+        Duck d2 = (Duck) a; // downcasting
         train(new Duck());
-        train(new Parrot());
-        // Animal a2 = new Animal();
-        // Bird b2 = new Bird();
-    }
-
-    private static void getToSpeak(Animal animal) {
-        System.out.println(animal.speak());
+        // train(new Parrot());
     }
 
     private static void train(Bird bird) {
